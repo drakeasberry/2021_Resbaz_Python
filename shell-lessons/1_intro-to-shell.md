@@ -30,7 +30,7 @@ In this case we are using BaSh (Born Again Shell), but there are lots of differe
 
 ### Windows
 
-If you are on Windows you are using the BsSh emulator that you installed with Git. This is an emulator because it basically fakes the real BaSh commands to make them work on Windows.
+If you are on Windows you are using the BaSh emulator that you installed with Git. This is an emulator because it basically fakes the real BaSh commands to make them work on Windows.
 
 ### MacOS
 
@@ -227,7 +227,7 @@ cd ../../..
 We can create folders and files. Let's setup the directory structure that we will use for the rest of the workshop. It is going to look like this:
 
 ```
-SDC_02-23-2019
+SDC_02-15-2020
     |
     repository
         |
@@ -242,21 +242,21 @@ SDC_02-23-2019
 Let's create the `SDC` folder withe `make directory` command.
 
 ```
-mkdir SDC_02-23-2019
+mkdir SDC_02-15-2020
 ```
 
 Now we can use `tab complete` to create the rest of the directories.
 
 ```
-mkdir SDC_02-23-2019/repository
-mkdir SDC_02-23-2019/repository/thesis
-mkdir SDC_02-23-2019/repository/analyses
-mkdir SDC_02-23-2019/repository/data
+mkdir SDC_02-15-2020/repository
+mkdir SDC_02-15-2020/repository/thesis
+mkdir SDC_02-15-2020/repository/analyses
+mkdir SDC_02-15-2020/repository/data
 ```
 
 ```
-mkdir SDC_02-23-2019/repository/data/original_data
-mkdir SDC_02-23-2019/repository/data/processed_data
+mkdir SDC_02-15-2020/repository/data/original_data
+mkdir SDC_02-15-2020/repository/data/processed_data
 ```
 
 Let's go into the `SDC` directory. We will spend the rest of the workshop here.
@@ -264,7 +264,7 @@ Let's go into the `SDC` directory. We will spend the rest of the workshop here.
 How do we get there?
 
 ```
-cd SDC_02-23-2019
+cd SDC_02-15-2020
 ```
 
 Also use File Explorer to drill into this folder. Do you see the sub-folders?
@@ -288,7 +288,7 @@ ls -la repository/data
 > use the absolute path and the shortcut to home
 
 ```
-ls -la ~/SDC_02-23-2019/repository/data
+ls -la ~/SDC_02-15-2020/repository/data
 ```
 
 Do you see the directories? Were they the same for each path you used?
@@ -302,7 +302,7 @@ When you are done playing around, make sure you are in the SDC repository folder
 How do you do that?
 
 ```
-cd ~/SDC_02-23-2019/repository
+cd ~/SDC_02-15-2020/repository
 ```
 
 ## ASSESSMENT
@@ -485,7 +485,7 @@ We will download a copy of the repository using `git clone`.
 > Make sure you are in the SDC directory, up one level from repository
 
 ```
-cd ~/SDC_02-23-2019
+cd ~/SDC_02-15-2020
 ```
 
 OR go up one level
@@ -502,7 +502,7 @@ pwd
 
 Are you here?
 
-`SDC_02-23-2019`
+`SDC_02-15-2020`
 
 ## git clone
 
@@ -526,14 +526,14 @@ Some things happened. Once it is done, list the files and folder. Do you see a n
 
 It is named the same as the name of the repository you cloned.
 
-List what is inside of that directory using the command `ls 2019-02-23-WorkshopResources`. Do you see the `shell-lessons` folder?
+List what is inside of that directory using the command `ls 2020_February_Bash_Python`. Do you see the `shell-lessons` folder?
 
-Move into the `2019-02-23-WorkshopResources/shell-lessons` folder and run `ls` again. Do you see a `data` folder? This is the source data for our workshop.
+Move into the `2020_February_Bash_Python/shell-lessons` folder and run `ls` again. Do you see a `data` folder? This is the source data for our workshop.
 
-Let's prepare this data for our workshop by making a copy in the repository data folder we created earlier. First let's move back up to the `~/SDC_02-23-2019` folder:
+Let's prepare this data for our workshop by making a copy in the repository data folder we created earlier. First let's move back up to the `~/SDC_02-15-2020` folder:
 
 ```
-cd ~/SDC_02-23-2019
+cd ~/SDC_02-15-2020
 ```
 
 ## copy the cloned data files into the original_data folder
@@ -551,7 +551,7 @@ cp -r
 We also need to tell the copy command what files to copy. To copy the contents of a directory we put in the path to the directory and add a *. This is the syntax that tells the cp command to get the contents but not the directory.
 
 ```
-cp -r 2019-02-23-WorkshopResources/shell-lessons/data/* repository/data/original_data/
+cp -r 2020_February_Bash_Python/shell-lessons/data/* repository/data/original_data/
 ```
 
 What was copied? List the contents of the original_data directory.
