@@ -1,8 +1,8 @@
-# 2019-02-23 UA Software Carpentry lessons and resources
+# 2020-02-15 UA Software Carpentry lessons and resources
 
 ## Workshop Website
 
-https://ua-carpentries-workshops.github.io/2019-02-23-Tucson/
+https://ua-carpentries-workshops.github.io/2020-02-15-Tucson/
 
 ## Contributors
 
@@ -29,7 +29,12 @@ For more on git you can see the git workshops
 * https://github.com/UA-Carpentries-Workshops/2018-12-07-git-workshop
 * https://github.com/UA-Carpentries-Workshops/2018-12-14-git-workshop
 
+
 ## Python Lessons
+
+feb2019 -- imported the repo to create the current repo for the 2020 python workshop. 
+Original 2019 repo can be found at the link below:
+* https://ua-carpentries-workshops.github.io/2019-02-23-Tucson/
 
 Running the notebooks:
 
