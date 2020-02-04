@@ -886,3 +886,259 @@ FB                  FB
 FC                  FD                  COMMIT -->      CHANGES ARE SAVED
 
 FD
+
+
+# Lesson 3
+## Intro to Shell Scripting
+
+We're going to explore shell scripts in this session. First you'll need to navigate to your ~/SDC_02-23-2019/2019-02-23-WorkshopResources/repository directory and create a 'scripts' directory. But first, type into the Etherpad which key should you use to complete parts of the directory path as you're entering your `cd` command. (You don't really want to type every character in the path, do you?):
+
+```bash
+cd ~/SDC_02-23-2019/repository
+mkdir scripts
+```
+
+Now let's copy the scripts from the git repo(sitory) we cloned earlier and put the copies into the new directory:
+```bash
+cp -R ~/SDC_02-23-2019/2019-02-23-WorkshopResources/shell-lessons/
+```
+
+We'll be working more with the gapminder data in this session. We will first review some commands, then practice chaining commands together using what are called *pipes*. Then we'll explore writing scripts that contain loops to repeat sets of commands and pipes.
+
+Move into the directory that contains the gapminder_by_country data:
+
+```bash
+cd data/original_data/gapminder_data/gapminder_by_country
+```
+
+Run the command to list the files:
+
+```bash
+ls
+```
+
+What do you notice about the similarities and differences of the filenames? We'll use the word count `wc` command to list the number of lines in each file. Run the `wc -l *` command.
+
+***Etherpad question***<br>
+What do you see that's interesting? What command can we use to look at the contents of the file with the fewest number of lines?
+
+```bash
+cat header.txt
+```
+
+Now we have an idea of what data these files contain. Let's look at a few examples.
+
+***Etherpad question***<br>
+Type a command that will show the contents of all of the .txt files with names starting with Z
+
+```bash
+cat Z*.txt
+```
+
+The `*` is a wildcard character that matches one or more occurrences of any character. If we want to look at what's in the files with names starting with Y or Z, we can run the command:
+
+```bash
+cat [YZ]*.txt
+```
+***Etherpad question***<br>
+What do you think will be output by the following command:
+
+```bash
+cat [W-Z]*.txt
+```
+
+We're starting to see a powerful feature of the shell, which is called a '*character class*'. There are many more ways to do pattern matching with the shell, but they are beyond the scope of this class. Feel free to explore these on your own! One useful source is: https://wiki.bash-hackers.org/syntax/pattern
+
+## Using pipes to work with data
+
+Use the Up-arrow key to scroll back through your command history to find the command that showed the contents of the header.txt file. Press the Enter/Return key to execute the command again.
+
+If we want to examine life expectancies for different countries, which column of data (i.e. column number) would we be interested in?
+
+We can use the `cut` command to extract a particular field or column of data from files with delimited columns. The -f option tells the number(s) of the columns or fields we want to extract. Try these commands:
+
+```bash
+cut -f 2 Zimbabwe.cc.txt
+cut -f 5 Zimbabwe.cc.txt
+cut -f 5,6 Zimbabwe.cc.txt
+cut -f 3-5,6 Zimbabwe.cc.txt
+```
+
+***Etherpad question***<br>
+Which of the above commands extracts the life expectancy column?
+
+If we want to sort the numbers in that column after extracting them, we can use a `pipe` to send the output of the cut command into the sort command. The symbol used to create a pipe is the vertical bar `|` which is often found above the Return or Enter key.:
+
+```bash
+cut -f 5 Zimbabwe.cc.txt | sort -n
+```
+
+We use the -n option with sort to get a numeric sort from low to high values (by default sorting is alphabetical, and it's important to use the right type of sorting for a given type of data.) Let's extend our pipe so that after sorting, it displays only the top 2 lines of output:
+
+```bash
+cut -f 5 Zimbabwe.cc.txt | sort -n | head -2
+```
+
+You can chain together as many commands as you like using pipes. Each time the output of the command before the `|` is passed as input to the command following the `|`.
+
+Using the `ls` command and the `wc` command, can you think of how to construct a pipe that would count the number of *.txt* files in a directory? Try this:
+
+```bash
+ls *.txt | wc
+```
+***Etherpad question***<br>
+Show how you could modify one part of the pipeline above to show only the number of files in the current directory. Is it the `ls` portion or the `wc` portion of the pipe that needs to be changed?
+
+## Revisiting grep
+
+The `grep` command has an odd name. It's a shortcut for 'get regular expression and print'. (You don't need to remember that though.) The important thing to remember about grep is that it will search for strings or words in files, and show you which lines contain those strings or words. Let's try a couple of examples:
+
+```bash
+grep "2007" [W-Z]*.txt
+```
+
+```bash
+grep "2007" [L-P]*.txt
+```
+
+***Etherpad question***<br>
+Can you spot lines containing years other than 2007? Write the countries for which this occurred.
+
+We can fix this problem by telling grep to search for 2007 with white space on either side of it. We specify the whitespace using the string "\b" (the "\" is a backslash character, often found on the key above Enter or Return.) Make sure you understand the difference between backslash and forward slash.
+
+***Etherpad question***<br>
+Write one use of the forward slash.
+Now try out the backslash:
+
+```bash
+grep "\b2007\b" [L-P]*.txt
+```
+
+This example shows the need to be very careful when working with large data sets. You should think carefully about what could go wrong while processing your data, and run sanity checks to make sure your outputs are correct.
+
+The `grep` command is often combined with `wc -l` to count the number of lines that contain a specified word or pattern. Run this pipe:
+
+```bash
+grep "\b2007\b" *.txt | wc -l
+```
+
+How many files have a line in them that contains data for the year 2007? Compare this number to the output of the pipe:
+
+```bash
+ls *.txt | wc -l
+```
+
+***Etherpad question***<br>
+Explain why the numbers are not the same.
+
+## Review of navigating directories
+
+Recall that the gapminder data is in:
+`~/SDC_02-23-2019/2019-02-23-WorkshopResources/repository/data/original_data/gapminder/gapminder_by_country/`
+and that we copied some scripts into:
+`~/SDC_02-23-2019/2019-02-23-WorkshopResources/repository/scripts`
+
+***Etherpad question***<br>
+If we start out in the gapminder_by_country directory shown above, what would be the command for moving to the scripts directory? Type your answer in the Etherpad:
+
+a. cd ~/scripts
+b. cd ../scripts
+c. cd ../../../../scripts
+d. cd scripts
+e. none of the above
+
+***Activity***<br>
+Use the cat command to show the contents of the ../../../../loop_cut_arg.sh script. The special variable "$1" refers to the first command line argument. To run the script, enter:
+
+```bash
+bash ../../../../loop_cut_arg.sh 6
+```
+
+***Activity***<br>
+Use `cat` to show the code in the `loop_conditional1.sh` script:
+
+```bash
+cat ../../../../loop_conditional1.sh
+```
+
+## Adding comments to your shell script
+
+Adding comments to your script is essential to secure its future usability and sharing potential. Without comments, it can be difficult to recall the function of a given line of code or understand scripts shared with collaborators. Thus, it is customary to add comments that explain the
+actions of certain parts of the script.
+
+You can add comments to a script by using nano.
+
+Comments are marked by the use of the `#` character (called 'pound' or 'hash' or 'sharp'). Comments represent something that a **HUMAN USER** can read and understand. The computer ignores lines of code preceded by the `#` character, whether they appear at the begining or the middle of the line.
+
+# Optional more Advanced Material
+
+## Types of files
+
+The gapminder data files we've explored were named `*.cc.txt` where the .txt suffix indicates that the files are "plain text" files. The fields in these files are delimited with Tabs, so another good way of naming them is to use `*.tsv` (tab separated values.) You may also be familiar with `.csv` files. In the Etherpad, type the meaning of 'csv.' All of the aforementioned files (.txt, .tsv, .csv) are examples of "plain text" files and you can easily work with them on the command line. If you have '.xlsx' files, these include special formatting information that is not plain text, so you will need to export these as comma- or tab-separated files if you want to work with them on the command line.
+
+## Exploring differences between files
+
+Think back to our earlier example of running `grep` to find all lines in gapminder data files containing 2007, and the issue we uncovered if our pattern did not pad the "2007" string with white space. How could we diagnose what's going on? Remember that we can use '>' to send the output of a command to a file. Run the following commands:
+```bash
+cd ~/SDC_02-23-2019/2019-02-23-WorkshopResources/repository/data/gapminder_data/gapminder_by_country
+grep "2007" *.txt > ../../processed_files/Found2007
+grep "\b2007\b" *.txt > ../../processed_files/Found2007b
+```
+
+***Etherpad question***<br>
+Write a command that would show the sizes of both of the new files. The `diff` command will show us the differences between 2 files:
+
+```bash
+diff ../../processed_files/Found2007 ../../processed_files/Found2007b
+```
+
+## An Introduction to File permissions
+
+We can see the permission string for a file by running `ls -l` and observing the first part of each line of output containing a string of 'r,w'x, or -' characters. These represent the permissions "read, write, execute, and none." Permissions can be changed with the `chmod` (change mode) command.
+
+## Enabling executable capabilities to the script
+
+We can allow everyone to execute our scripts by using the chmod command. This command can be used to change file system modes/permissions of files and directories. To enable execution of our loop_filenames.sh script we use:
+
+```bash
+chmod +x loop_filenames.sh
+```
+
+Another good use of the chmod command is to make a data directory non-writeable. For example, we might want to protect the original_data directory so that it cannot be changed. This command will remove write permission (recursively) for original_data:
+```bash
+cd ~/SDC_02-23-2019/2019-02-23-WorkshopResources/repository/data
+chmod -R -w original_data
+```
+
+### Killing an infinite loop
+
+Uh oh! We seem to have created an infinite loop by doing question "d". In the case of *while loops*, if the conditions to finish the loop
+are never met the loop will continue running until the user kills the process. If you find your self in this
+position don't panic! You can end and kill a rogue while loop by pressing the following command on your terminal:
+
+```bash
+Ctrl+C
+```
+
+
+# Lesson 3
+## Intro to Shell Scripting
+
+Setup (mkdir, cp) scripts
+Review gapminder data
+Examples of file selection using []
+Intro to pipes
+    Review cat, cut, sort, head, ls, wc
+Review grep
+
+## Shell exercise
+
+>>, mv, comments
+
+### Optional more Advanced Material
+
+## Exploring differences between files
+<, diff
+
+## Enabling executable capabilities to the script
++x, -w
