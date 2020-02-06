@@ -1,16 +1,16 @@
 # Shell Lessons
 
-# Getting started
+## Getting started
 
 In your browser
 
-* Open a tab and go to the Etherpad
-* Open a tab and go to Github and login with your account
-* Open a tab and go to the Workshop website and make sure you have installed the required software for your system. `Red sticky` if you need help. 
+* Open a tab and go to [workshop website](https://ua-carpentries-workshops.github.io/2020-02-15-Tucson/) and make sure you have installed the required software for your system. `Red sticky` if you need help.
+* Open a tab and go to the [Etherpad](https://pad.carpentries.org/2020-02-15-Tucson)
+* Open a tab and go to [Github](https://github.com/) and login with your account
+* Open a tab and go to our Github repository. Use the link in the Etherpad.
 * Open a tab and go to [Explain Shell](http://explainshell.com/)
 * Open a tab and go to the Shell Share in the link in the Etherpad
 * Open `Terminal` or `git bash` and enter `nano` to make sure you have `nano` installed.
-* Open a tab and go to our Github repository. Use the link in the Etherpad.
 
 ## What is the shell?
 
@@ -224,7 +224,7 @@ cd ../../..
 
 [Software Carpentry Working with Files and Directories](https://swcarpentry.github.io/shell-novice/03-create/index.html)
 
-We can create folders and files. Let's setup the directory structure that we will use for the rest of the workshop. It is going to look like this:
+We can create folders and files. Let's setup the directory structure that we can use for a project. It is going to look like this:
 
 ```
 SDC_02-15-2020
@@ -239,7 +239,13 @@ SDC_02-15-2020
             processed_data
 ```
 
-Let's create the `SDC` folder withe `make directory` command.
+Let's create the `SDC` folder on our Desktop with the `make directory` command.
+
+How do we navigate to our Desktop?
+
+```
+cd ~/Desktop
+```
 
 ```
 mkdir SDC_02-15-2020
@@ -304,7 +310,7 @@ How do you do that?
 ```
 cd ~/SDC_02-15-2020/repository
 ```
-
+#############################Start Working Here######################################
 ## ASSESSMENT
 
 How do I get to my home directory?
