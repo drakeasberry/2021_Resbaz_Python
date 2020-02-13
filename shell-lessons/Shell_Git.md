@@ -142,7 +142,10 @@ Now you will see all files or folders.
 # How do we do this in Windows Explorer
 On a Windows:
 
-
+```
+Win + H 
+Win + G
+```
 On a Mac:
 
 ```
@@ -222,31 +225,6 @@ ls -la
 
 Do you see the same thing you did before?
 
-## Absolute paths and relative paths
-
-Let's talk about paths some more. We can get to directories with a `relative` path or an `absolute` path.
-
-### Absolute paths
-
-Absolute paths always start from the `root` of the filesystem.
-
-```
-/c/folderA/folderB/folderC
-```
-
-### Relative paths
-
-Relative paths are relative to the current location
-
-```
-folderB/folderC
-```
-
-You can also go up levels `relative` to the current location.
-
-```
-cd ../../..
-```
 
 # Working with Files and Directories
 
@@ -254,7 +232,7 @@ cd ../../..
 
 We can create folders and files. Let's setup the directory structure that we can use for the workshop. 
 It is going to look like this:
- 
+
 ```
 SDC_02-15-2020
     |
@@ -295,9 +273,45 @@ mkdir SDC_02-15-2020/repository/data/original_data
 mkdir SDC_02-15-2020/repository/data/processed_data
 ```
 
-Let's go into the `SDC` directory. We will spend the rest of the workshop here.
+## Absolute paths and relative paths
 
-How do we get there?
+Let's talk about paths some more. We can get to directories with a `relative` path or an `absolute` path.
+
+### Absolute paths
+
+Absolute paths always start from the `root` of the filesystem.
+
+```
+/c/Desktop/SDC_02-15-2020/repository/data
+
+/Users/drakeasberry/Desktop/SDC_02-15-2020/repository/data
+```
+
+### Relative paths
+
+Relative paths are relative to the current location
+
+```
+repository/data/
+```
+
+Lets move into the data folder inside the repository folder together. How do we get there from our current location?
+
+```
+cd SDC_02-15-2020/repository/data/
+pwd
+```
+
+You can also go up a level or levels `relative` to the current location.
+
+```
+cd ..
+pwd
+cd ../..
+pwd
+```
+
+Let's go into the `SDC` directory. We will spend the rest of the workshop here.
 
 ```
 cd SDC_02-15-2020
@@ -313,8 +327,7 @@ ls -la repository
 
 Do you see the analyses and data folder?
 
-What is under data? How do I list it?
-
+> What is under data? How do I list it?
 > use the relative path
 
 ```
@@ -344,7 +357,8 @@ cd ~/Desktop/SDC_02-15-2020/repository
 
 ## ASSESSMENT
 
-How do I get to my home directory?
+Etherpad
+> How do I get to my home directory?
 
 1) cd ~
 2) ls ~
@@ -355,7 +369,7 @@ How do I get to my home directory?
 
 ## Creating and Editing Files
 
-Let's create a file called. There are two ways of doing this.
+Let's create a file called `thesis.txt`. There are two ways of doing this.
 
 ### use `nano`
 
@@ -396,7 +410,7 @@ ls -la
 
 ### use touch
 
-Let's create a new file but without using a file editor.
+Let's create a new file called `draft.txt` but without using a file editor.
 
 ```
 touch draft.txt
@@ -459,9 +473,11 @@ You dont see thesis.txt where you created it, but you should see it where you mo
 ls -la thesis/
 ```
 
-> You can also use mv to rename files
+## Renaming files
 
-Let's rename thesis.txt to thesis_final.txt
+You can also use mv to rename files
+
+Let's rename draft.txt to thesis_final.txt
 
 ```
 mv thesis/draft.txt thesis/thesis_final.txt
@@ -475,7 +491,9 @@ You should see the new file name.
 
 ## Copying files
 
-Let's make a copy of thesis_final.txt. To do this you use the `cp` command.  Just like `mv`, you tell it the `path to` and the `name of` the file you want to move and the path to the new location. You can use the relative or absolute path. Let's use the relative path.
+Let's make a copy of thesis_final.txt. To do this you use the `cp` command.  Just like `mv`, you tell it the `path to` 
+and the `name of` the file you want to move and the path to the new location. You can use the relative or absolute path. 
+Let's use the relative path.
 
 ```
 cp thesis/thesis_final.txt thesis/thesis_copy.txt
@@ -510,7 +528,9 @@ You should not see thesis_copy.txt.
 
 ## ASSESSMENT
 
-I want to move a file from one location to another. What command do I use?
+Etherpad
+
+> I want to move a file from one location to another. What command do I use?
 
 1) mp
 2) mv
@@ -554,14 +574,14 @@ pwd
 
 Are you here?
 
-`SDC_02-15-2020`
+`/Users/drakeasberry/Desktop/SDC_02-15-2020`
 
 ## git clone
 
 On your Github account's repository page, click the Big Green Button and then click the clipboard button. 
 This will copy the URL of the files to your clipboard.
 
-Go back to the shell and type
+Go back to the shell and type`
 
 ```
 git clone
@@ -621,7 +641,7 @@ ls -la repository/data/original_data
 What is inside the gapminder_by_country directory?
 
 ```
-ls -la repository/data/original_data/gapminder_by_country
+ls -la repository/data/original_data/gapminder_data/gapminder_by_country/
 ```
 
 That's a lot of files. Let's start working with them.
@@ -764,6 +784,7 @@ To do this we use the pipe character `|`. Let's try it.
 ```
 cat *.cc.txt | less
 ```
+Type `q` to exit out of less
 
 The only problem here is that we don't have the headers. So we need to cat the country files with the header file. 
 We want the header first. How would we do that?
@@ -793,19 +814,21 @@ Let's go where we outputted the file
 cd ../../../processed_data/
 ```
 
-If the commands worked you should see 1705 lines. How do we count the lines?
+Etherpad 
+> How do we count the lines?
 
 ```
 wc -l all_countries.txt
 ```
+If the commands worked you should see 1705 lines. 
 
-Let's look at the top 10 lines
+> How do we look at the top 10 lines?
 
 ```
 head all_countries.txt
 ```
 
-And the last 10 lines?
+> And the last 10 lines?
 
 ```
 tail all_countries.txt
@@ -816,6 +839,26 @@ line for differences.
 
 ```
 diff all_countries.txt ../../../2020_February_Bash_Python/shell-lessons/data/gapminder_data/.gapminder_final.txt
+```
+
+Etherpad Exercise: 5-10 minutes
+
+> You have been sent a file called `Afghanistan_Raw.xlsx` located in the following directory
+`~/Desktop/SDC_02-15-2020/2020_February_Bash_Python/shell-lessons/data/gapminder_data`, but there are some errors that 
+need to be addressed before you can analyze the data. Find and correct the errors and then check to see that all errors 
+are resolve by your modified file against the correct one `.Afghanistan_Fixed.csv` file included here.
+
+How do we see the contents of the file we received?
+```
+cat
+nano
+```
+
+First you will need to convert the Excel file into a format that Bash can understand.
+
+```
+nano Afghanistan_Raw.csv
+diff Afghanistan_Fixed.csv .Afghanistan_Fixed.csv 
 ```
 
 # Process the data
@@ -836,6 +879,8 @@ grep is that it will search for strings or words in files, and show you which li
 
 Let's look at the line count for each of these grep commands. To do this we can combine commands into a pipeline of
 commands for a final output. Again, we will use the `|` character. Let's country the grep output.
+
+`echo` before commands to see what it is doing before you run the command.
 
 ```
 grep 2007 all_countries.txt | wc -l
@@ -925,10 +970,10 @@ it's important to use the right type of sorting for a given type of data.) Let's
 it displays only the top 2 lines of output:
 
 ```bash
-cut -f 5 Zimbabwe.cc.txt | sort -n | head -2
+cut -f 5 Zimbabwe.cc.txt | sort -n | head -2 sort/unique (add this is, remind in Pandas)
 ```
 
-Lets combine what we learned about cutting with 2007 only data from before. What will this output?
+> Lets combine what we learned about cutting with 2007 only data from before. What will this output?
 ```
 grep "\b2007\b" all_countries.txt | sort -r | head | cut -f1
 ```
@@ -1014,47 +1059,10 @@ Lets make sure we have saved our changes:
 ```
 git status
 git add
+git status
 git commit
 git push
 ```
-
-# Optional more Advanced Material
-
-## Analyze the data (exta credit)
-
-> What are the top 10 countries for GDP in 2007?
-> What are the bottom 10 countries for GDP in 2007?
-
-## Types of files
-
-The gapminder data files we've explored were named `*.cc.txt` where the .txt suffix indicates that the files are
-"plain text" files. The fields in these files are delimited with Tabs, so another good way of naming them is to
-use `*.tsv` (tab separated values.) You may also be familiar with `.csv` files. In the Etherpad, type the meaning
-of 'csv.' All of the aforementioned files (.txt, .tsv, .csv) are examples of "plain text" files and you can easily
-work with them on the command line. If you have '.xlsx' files, these include special formatting information that is
-not plain text, so you will need to export these as comma- or tab-separated files if you want to work with them on
-the command line.
-
-## Exploring differences between files
-
-Think back to our earlier example of running `grep` to find all lines in gapminder data files containing 2007, and
-the issue we uncovered if our pattern did not pad the "2007" string with white space. How could we diagnose what's
-going on? Remember that we can use '>' to send the output of a command to a file. Run the following commands:
-
-```bash
-cd ~/Desktop/SDC_02-23-2019/2019-02-23-WorkshopResources/repository/data/gapminder_data/gapminder_by_country
-grep "2007" *.txt > ../../processed_files/Found2007
-grep "\b2007\b" *.txt > ../../processed_files/Found2007b
-```
-
-Write a command that would show the sizes of both of the new files. The `diff` command will show us the differences 
-between 2 files:
-
-```bash
-diff ../../processed_files/Found2007 ../../processed_files/Found2007b
-```
-
-##################### Stopped Testing Here ################
 
 # git
 
@@ -1128,6 +1136,7 @@ the message it will automatically open your default text editor (Likely Nano) an
 
 Before we can push we need a remote repository to push to. Let's try creating that on Github.
 
+
 # Other useful git commands
 
 ## git log 
@@ -1150,3 +1159,39 @@ FB                  FB
 FC                  FD                  COMMIT -->      CHANGES ARE SAVED
 
 FD
+
+# Optional more Advanced Material
+
+## Analyze the data (exta credit)
+
+> What are the top 10 countries for GDP in 2007?
+> What are the bottom 10 countries for GDP in 2007?
+
+## Types of files
+
+The gapminder data files we've explored were named `*.cc.txt` where the .txt suffix indicates that the files are
+"plain text" files. The fields in these files are delimited with Tabs, so another good way of naming them is to
+use `*.tsv` (tab separated values.) You may also be familiar with `.csv` files. In the Etherpad, type the meaning
+of 'csv.' All of the aforementioned files (.txt, .tsv, .csv) are examples of "plain text" files and you can easily
+work with them on the command line. If you have '.xlsx' files, these include special formatting information that is
+not plain text, so you will need to export these as comma- or tab-separated files if you want to work with them on
+the command line.
+
+## Exploring differences between files
+
+Think back to our earlier example of running `grep` to find all lines in gapminder data files containing 2007, and
+the issue we uncovered if our pattern did not pad the "2007" string with white space. How could we diagnose what's
+going on? Remember that we can use '>' to send the output of a command to a file. Run the following commands:
+
+```bash
+cd ~/Desktop/SDC_02-23-2019/2019-02-23-WorkshopResources/repository/data/gapminder_data/gapminder_by_country
+grep "2007" *.txt > ../../processed_files/Found2007
+grep "\b2007\b" *.txt > ../../processed_files/Found2007b
+```
+
+Write a command that would show the sizes of both of the new files. The `diff` command will show us the differences 
+between 2 files:
+
+```bash
+diff ../../processed_files/Found2007 ../../processed_files/Found2007b
+```
