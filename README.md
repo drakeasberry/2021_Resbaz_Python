@@ -2,7 +2,11 @@
 
 ## Workshop Website
 
-https://ua-carpentries-workshops.github.io/2020-02-15-Tucson/
+* https://ua-carpentries-workshops.github.io/2020-02-15-Tucson/
+
+## Etherpad
+
+* https://pad.carpentries.org/2020-02-15-Tucson
 
 ## Contributors
 
@@ -23,6 +27,9 @@ Do not deviate from the Software Carpentry pedagogy. Work closely with your work
 feb2018 -- older shell lessons that also contain shell scripting.
 
 oct2018 -- newer, shorter shell lessons with simplified git lesson at the end of the lessons
+
+feb2020 -- modified and condensed shell lessons based off of feb2019 workshop
+* https://ua-carpentries-workshops.github.io/2019-02-23-Tucson/
 
 For more on git you can see the git workshops
 
@@ -47,5 +54,3 @@ Running the notebooks:
 ```bash
 jupyter notebook
 ```
-
-testing
