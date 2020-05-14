@@ -1,12 +1,14 @@
-# 2020-02-15 UA Software Carpentry lessons and resources
+# 2020-05-18 UA Resbaz 2020 Conference
 
 ## Workshop Website
 
-* https://ua-carpentries-workshops.github.io/2020-02-15-Tucson/
+* [Setup Instructions](https://drakeasberry.github.io/intro_python_resbaz2020/)
 
-## Etherpad
+## HackMD
 
-* https://pad.carpentries.org/2020-02-15-Tucson
+* [Conference HackMD List]()
+* [Intro to Python 1: Data](https://hackmd.io/EU760_l6Q36Ot0JnXutCvw)
+* [Intro to Python 2: A tool for Programming](https://hackmd.io/uYEqx4o9QnSGeLuIVn8_cQ) 
 
 ## Contributors
 
@@ -20,36 +22,29 @@ NOTE to contributors. These are the lessons and content from previous workshops.
 * Improve by shortening lessons and sticking to the basics to keep with the time constraints
 * Improve the rhythm and flow by adding more breaks
 
-Do not deviate from the Software Carpentry pedagogy. Work closely with your workshop mentors.
-
-## Shell lessons
-
-feb2018 -- older shell lessons that also contain shell scripting.
-
-oct2018 -- newer, shorter shell lessons with simplified git lesson at the end of the lessons
-
-feb2020 -- modified and condensed shell lessons based off of feb2019 workshop
-* https://ua-carpentries-workshops.github.io/2019-02-23-Tucson/
-
-For more on git you can see the git workshops
-
-* https://github.com/UA-Carpentries-Workshops/2018-12-07-git-workshop
-* https://github.com/UA-Carpentries-Workshops/2018-12-14-git-workshop
-
+Note: this particular workshop was taught completely online and may show differences from other live-coding workshops you have seen in the past. Feel free to adjust as necessary.
 
 ## Python Lessons
 
+Resbaz 2020 - imported the 2020 python workshop repo
+[2020 python repo](https://github.com/UA-Carpentries-Workshops/2020_February_Bash_Python) -- taught as Software Carpentries in February of 2020
 feb2019 -- imported the repo to create the current repo for the 2020 python workshop. 
-Original 2019 repo can be found at the link below:
-* https://ua-carpentries-workshops.github.io/2019-02-23-Tucson/
+Original 2019 repo can be found [here:](https://ua-carpentries-workshops.github.io/2019-02-23-Tucson/)
 
-Running the notebooks:
+### Virtual Format 
+Running the notebooks during the workshop without having software installed
+Follow instructions in HackMD pages:
+    * [Intro to Python 1: Data](https://hackmd.io/EU760_l6Q36Ot0JnXutCvw)
+    * [Intro to Python 2: A tool for Programming](https://hackmd.io/uYEqx4o9QnSGeLuIVn8_cQ)
 
-1. Follow the website instructions to setup your machine.
-2. Clone this repo
+### In-Person Format
+Running the notebooks at home with all software installed locally:
+
+1. Follow the [website instructions](https://ua-carpentries-workshops.github.io/2020-02-15-Tucson/) to setup your machine.
+2. Clone this [repo](https://github.com/drakeasberry/2020_Resbaz_Python) 
 3. Use the command line to go to the repo
-4. Then go to the python lessons directory
-5. If conda installed correctly you should be able to lanuch Jupyter from there with this command
+4. Then go to the intro\_python directory for _Intro to Python 1: Data_ OR python\_workflows directory for _Intro to Python II: A tool for programming_
+5. If conda installed correctly you should be able to launch Jupyter from there with this command
 
 ```bash
 jupyter notebook
