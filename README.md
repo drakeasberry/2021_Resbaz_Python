@@ -43,7 +43,7 @@ Running the notebooks at home with all software installed locally:
 1. Follow the [website instructions](https://ua-carpentries-workshops.github.io/2020-02-15-Tucson/) to setup your machine.
 2. Clone this [repo](https://github.com/drakeasberry/2020_Resbaz_Python) 
 3. Use the command line to go to the repo
-4. Then go to the intro\_python directory for _Intro to Python 1: Data_ OR python\_workflows directory for _Intro to Python II: A tool for programming_
+4. Then go to the `intro_python` directory for _Intro to Python 1: Data_ OR `python_workflows` directory for _Intro to Python II: A tool for programming_
 5. If conda installed correctly you should be able to launch Jupyter from there with this command
 
 ```bash
