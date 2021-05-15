@@ -1,5 +1,5 @@
 ## Prerequisites
-While you do not need to know any python or programming languages to attend this workshop, you will need to have the following prerequisites met before attending.
+While you do not need to know any python or programming languages to attend this workshop, you will need to have the following prerequisites met before attending. This webpage covers all information related to both introduction to python sessions at ResBaz 2021.
 
 ### Internet Browser
 You will also need to be able to access the internet through relatively up-to-date browser such as Chrome, Safari or Firefox.
