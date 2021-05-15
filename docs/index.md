@@ -24,13 +24,15 @@ Select your operating system:
 ### Anaconda
 Anaconda gives you access to open source software where you can utilize Python to begin your programming projects. The Jupyter Notebooks that we will be working with were created using Anaconda. [Download Anaconda](https://www.anaconda.com/products/individual) It is an all-in-one installer and I would recommend installing a version with Python 3.6 or higher.
 
-Check out other Python-based workshops during Resbaz 2020:
+Check out other Python-based workshops during Resbaz 2021:
 - _Intro to Python II_ led by Drake Asberry
-- _Test-Driven Development with PyTest_ led by Ken Youens-Clark
-- _Intro to Machine Learning (Python, UA HPC, and Containers)_ led by Dima Shyshlov and Chris Reidy
-- _Using Jupyter Notebooks and RStudio on the UA HPC_ led by Blake Joyce
-- _Data Wrangling and Plotting in Python: it's actually half R_ led by Blake Joyce
-- _Scraping Twitter with Python_ led by Darla Still
+- _Intermediate Python with Testing and Types_ led by Ken Youens-Clark
+- _Using Generalized Low Rank models to deal with real-world data_
+- _Data structures (pandas) and data visualization (matplotlib) in Python_ led by Artin Majdi
+- _Prefect (an Airflow alternative) for data pipelines in Python_ led by Frank Ventura
+- _Machine Learning with Scikit-Learn_ led by Reza Ehsani
+- _Machine learning lifecycle mangers: How mlflow can make our life easier_ led by Artin Majdi
+- _Basics of text processing with spaCy_ led by Damian Romero
 
 ### Git
 Git is a version control system that lets you track who made changes to what when and has options for easily updating a shared or public version of your code on GitHub. Consider attending _Better version control with Git_ workshop led by Laurel Thomson.
